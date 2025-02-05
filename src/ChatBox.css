@@ -1,0 +1,120 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(to left, #9be0ed, #B2FEFA);
+  }
+
+.chatbox {
+    width: 100%;
+    height: 490px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #B2FEFA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  scrollbar-width: thin;
+  scrollbar-color: #007bff #f9f9f9;
+  }
+
+  .messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+  
+  .message {
+    margin-bottom: 10px;
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .message.user {
+    justify-content: flex-end;
+  }
+  
+  .message.ai {
+    justify-content: flex-start;
+  }
+  
+  
+  .message-text {
+    background-color: #B2FEFA; /* Default background for AI messages */
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  .message-text pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap; /* Ensure the code wraps properly */
+    word-wrap: break-word;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto; /* For horizontal scrolling if code overflows */
+  }
+  
+
+  .message.user .message-text {
+    background-color: #0ED2F7; /* Background for user messages */
+    color: white;
+  }
+  
+  .input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background-color: white;
+  }
+  
+  .input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none;
+  }
+  
+  .input-area button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .input-area button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
