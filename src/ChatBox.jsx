@@ -12,16 +12,26 @@ const ChatBox = () => {
 
 
   const inputRef = useRef(null);
+  const messagesEndRef = useRef(null);
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, [messages, isLoading]);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const generateContent = async (prompt) => {
     try {
       const genAI = new GoogleGenerativeAI(import.meta.env.VITE_api_key);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "You are a chatbot. Your name is Charcha AI." });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "You are a chatbot. Your name is Charcha AI. Charcha Ai developed by Naizam K Najeeb. Naizam K Najeeb is a web developer, ethical hacker, and digital marketer. you developed by 2025 february 05. charcha is malayalam word. Charcha (ചർച്ച) is a Malayalam word meaning discussion or conversation. It signifies the act of exchanging ideas, thoughts, and opinions in a meaningful and engaging way. Traditionally, charcha has been a cornerstone of community gatherings, where people come together to share knowledge, resolve issues, and build connections." });
 
       const result = await model.generateContent(prompt);
       const response = await result.response;
@@ -89,6 +99,7 @@ const ChatBox = () => {
             <span className="message-text">Typing...</span>
           </div>
         )}
+        <div ref={messagesEndRef} />
       </div>
       <div className="input-area">
         <input
