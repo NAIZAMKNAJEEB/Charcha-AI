@@ -1,3 +1,13 @@
+.title{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-family: "Barlow", serif;
+  font-weight: 900;
+  font-style: normal;
+}
 
 .subtitle{
   text-align: center;
@@ -14,13 +24,4 @@
   font-family: "Barlow", serif;
   font-weight: 600;
   font-style: normal;
-}
-.logo{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  width: 20%;
-  height: 60px;
-  object-fit: cover;
 }
